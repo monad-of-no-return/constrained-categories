@@ -45,5 +45,3 @@ instance (Semigroup a, Semigroup b) => Semigroup (ProductCatObj a b) where
 
 instance (Monoid a, Monoid b) => Monoid (ProductCatObj a b) where
   mempty = ProductCatObj mempty mempty
-  mappend (ProductCatObj x y) (ProductCatObj w z)
-       = ProductCatObj (mappend x w) (mappend y z)
