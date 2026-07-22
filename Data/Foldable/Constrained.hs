@@ -81,7 +81,6 @@ instance (Category k, Object k a) => Semigroup (Endo' k a) where
   (Endo' f) <> (Endo' g) = Endo' $ f . g
 instance (Category k, Object k a) => Monoid (Endo' k a) where
   mempty = Endo' id
-  mappend = (<>)
 
 newtype Monoidal_ (r :: * -> * -> *) (s :: * -> * -> *) (f :: * -> *) (u :: *) 
       = Monoidal { runMonoidal :: f u }
@@ -95,7 +94,6 @@ instance ( Monoidal f k k, Function k
          , ObjectPair k u u, ObjectPair k (f u) (f u), Object k (f u,f u)
          ) => Monoid (Monoidal_ k k f u) where
   mempty = memptyMdl
-  mappend = (<>)
 
 memptyMdl :: forall r s f u v . ( Monoidal f r s, Function s
                                 , ObjectPair s u u, Monoid v

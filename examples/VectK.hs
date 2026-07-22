@@ -301,7 +301,6 @@ instance HasBasis (ZeroDim k) where
   decompose' Origin = absurd
 instance Monoid (ZeroDim k) where
   mempty = Origin
-  mappend Origin Origin = Origin
 
 instance Enum Void where
   fromEnum = absurd
